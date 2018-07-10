@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>static</name>
+	<name>node_blog</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -16,7 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1531120856949</id>
+			<id>1531204878348</id>
 			<name></name>
 			<type>26</type>
 			<matcher>
