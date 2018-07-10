@@ -1,3 +1,7 @@
+body {
+    background-color: #ebebeb;
+}
+
 @keyframes square {
     0% {
         opacity: 0.5;
@@ -108,6 +112,52 @@
                 width: 160px;
                 height: 160px;
                 animation-delay: 11s;
+            }
+        }
+    }
+}
+
+.main-header {
+    text-align: center;
+    padding: 62px 0;
+    background: #ffffff url("http://static.ghostchina.com/image/6/d1/fcb3879e14429d75833a461572e64.jpg") no-repeat center 20%;
+    background-size: cover;
+}
+
+.main-navigation {
+    width: 100%;
+    text-align: center;
+    background: #ffffff;
+    border-top: 1px solid #ebebeb;
+    margin-bottom: 35px;
+    border-bottom: 2px solid #e1e1e1;
+    &.navigation-fix-top {
+        position: fixed;
+        top: 0;
+        z-index: 1100;
+    }
+    .menu {
+        margin: 0;
+        padding: 0;
+        li {
+            list-style: none;
+            display: inline-block;
+            position: relative;
+            &.nav-current {
+                border-bottom: 2px solid #e67e22;
+                margin-bottom: -2px;
+            }
+            &:hover {
+                a {
+                    color: #e67e22;
+                    text-decoration: none;
+                }
+            }
+            a {
+                color: #505050;
+                line-height: 4em;
+                display: block;
+                padding: 0 21px;
             }
         }
     }

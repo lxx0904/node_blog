@@ -1,3 +1,5 @@
+body { background-color: #ebebeb; }
+
 @keyframes square { 0% { opacity: 0.5; transform: translateY(0px) rotate(45deg); }
   25% { opacity: 0.75; transform: translateY(-400px) rotate(90deg); }
   50% { opacity: 1; transform: translateY(-600px) rotate(135deg); }
@@ -16,5 +18,15 @@
 .login .bg-bubbles li:nth-child(8) { left: 55%; width: 20px; height: 20px; animation-delay: 15s; animation-duration: 40s; }
 .login .bg-bubbles li:nth-child(9) { left: 25%; width: 10px; height: 10px; animation-delay: 2s; animation-duration: 40s; background-color: rgba(255, 255, 255, 0.3); }
 .login .bg-bubbles li:nth-child(10) { left: 90%; width: 160px; height: 160px; animation-delay: 11s; }
+
+.main-header { text-align: center; padding: 62px 0; background: #ffffff url("http://static.ghostchina.com/image/6/d1/fcb3879e14429d75833a461572e64.jpg") no-repeat center 20%; background-size: cover; }
+
+.main-navigation { width: 100%; text-align: center; background: #ffffff; border-top: 1px solid #ebebeb; margin-bottom: 35px; border-bottom: 2px solid #e1e1e1; }
+.main-navigation.navigation-fix-top { position: fixed; top: 0; z-index: 1100; }
+.main-navigation .menu { margin: 0; padding: 0; }
+.main-navigation .menu li { list-style: none; display: inline-block; position: relative; }
+.main-navigation .menu li.nav-current { border-bottom: 2px solid #e67e22; margin-bottom: -2px; }
+.main-navigation .menu li:hover a { color: #e67e22; text-decoration: none; }
+.main-navigation .menu li a { color: #505050; line-height: 4em; display: block; padding: 0 21px; }
 
 /*# sourceMappingURL=style.css.map */

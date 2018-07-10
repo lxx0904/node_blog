@@ -8,12 +8,101 @@
 		<meta name="format-detection" content="telephone=no">
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 		<title>demo</title>
-		<link rel="stylesheet" type="text/css" href="common/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="common/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="common/css/style.css" />
 	</head>
 
 	<body>
+		<header class="main-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<a class="branding" href="javascript:;" title="Ghost 开源博客平台">
+							<img src="./common/images/logo.png" alt="demo 开源博客平台">
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<nav class="main-navigation" id="nav">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<ul class="menu">
+							<li class="nav-current" role="presentation">
+								<a href="javascript:;">首页</a>
+							</li>
+							<li role="presentation">
+								<a href="javascript:;">论坛</a>
+							</li>
+							<li role="presentation">
+								<a href="javascript:;">快捷手册</a>
+							</li>
+							<li role="presentation">
+								<a href="javascript:;">中文文档</a>
+							</li>
+							<li role="presentation">
+								<a href="javascript:;">下载</a>
+							</li>
+							<li role="presentation">
+								<a href="javascript:;">关于</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<section class="content-wrap">
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+		</section>
+		<script src="common/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				$(window).on("scroll", function(e) {
+					e = e || window.event;
+					var scroll = $(document).scrollTop();
+					if(scroll > 192) {
+						$("#nav").addClass("navigation-fix-top");
+					} else {
+						$("#nav").removeClass("navigation-fix-top");
+					}
+				});
+			});
+		</script>
 	</body>
 
 </html>
