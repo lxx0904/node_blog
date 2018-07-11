@@ -95,6 +95,7 @@
 		<script src="common/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="common/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="common/js/cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function() {
 				var username = getcookie("username");
@@ -106,7 +107,7 @@
 
 			function getList() {
 				$.ajax({
-					url: "http://localhost:3000/api/message/messageList",
+					url: apiUrl + "message/messageList",
 					type: "post",
 					timeout: 20000,
 					dataType: "json",
@@ -144,7 +145,7 @@
 					alert("请输入内容");
 				} else {
 					$.ajax({
-						url: "http://localhost:3000/api/message/messageAdd",
+						url: apiUrl + "message/messageAdd",
 						type: "post",
 						timeout: 20000,
 						dataType: "json",

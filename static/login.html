@@ -50,6 +50,7 @@
 		</body>
 		<script src="common/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="common/js/cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			function login() {
 				var username = $("#username").val(),
@@ -60,7 +61,7 @@
 					alert("请输入密码");
 				} else {
 					$.ajax({
-						url: "http://localhost:3000/api/user/userLogin",
+						url: apiUrl + "user/userLogin",
 						type: "post",
 						timeout: 20000,
 						dataType: "json",
@@ -86,7 +87,7 @@
 
 			function addUser(username, pwd) {
 				$.ajax({
-					url: "http://localhost:3000/api/user/addUser",
+					url: apiUrl + "user/addUser",
 					type: "post",
 					timeout: 20000,
 					dataType: "json",
