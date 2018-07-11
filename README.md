@@ -4,4 +4,6 @@
 
 ### 属于新手入门级项目
 
-> 项目在线地址：https://lxx0904.github.io/node_blog/static/index.html
+> 项目在线地址：http://114.215.155.197:8800/node_blog/static/index.html
+
+> 后续还会继续更新
