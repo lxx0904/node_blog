@@ -49,6 +49,7 @@
 			</div>
 		</body>
 		<script src="common/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/js/cookie.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			function login() {
 				var username = $("#username").val(),
@@ -70,7 +71,8 @@
 						success: function(data) {
 							if(data.code === 1) {
 								if(data.result.length > 0) {
-									alert("登陆成功！");
+									setcookie("username", username, 1);
+									window.location = "index.html";
 								} else {
 									addUser(username, pwd);
 								}
@@ -94,7 +96,8 @@
 					},
 					success: function(data) {
 						if(data.code === 1) {
-							alert("注册成功！");
+							setcookie("username", username, 1);
+							window.location = "index.html";
 						} else {
 							alert(data.msg);
 						}

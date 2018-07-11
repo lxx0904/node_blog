@@ -1,4 +1,5 @@
 const userApi = require('./api/userApi');
+const messageApi = require('./api/messageApi');
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
@@ -18,6 +19,7 @@ app.all('*', function(req, res, next) {
 
 //后端api路由
 app.use('/api/user', userApi);
+app.use('/api/message', messageApi);
 
 //监听端口
 app.listen(3000);

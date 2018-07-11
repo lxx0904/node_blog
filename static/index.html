@@ -53,55 +53,122 @@
 			</div>
 		</nav>
 		<section class="content-wrap">
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
-			<p>1</p>
+			<div class="container">
+				<div class="rows">
+					<main class="col-md-8" id="main"></main>
+					<aside class="col-md-4">
+						<div class="widget">
+							<h4 class="title">添加 blog</h4>
+							<div class="content download">
+								<a href="javascript:;" class="btn btn-warning btn-block" data-toggle="modal" data-target="#myModal">add blog</a>
+							</div>
+						</div>
+					</aside>
+				</div>
+			</div>
 		</section>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">添加 blog</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="message-title" class="control-label">title:</label>
+							<input type="text" class="form-control" id="message-title">
+						</div>
+						<div class="form-group">
+							<label for="message-text" class="control-label">Message:</label>
+							<textarea class="form-control" id="message-text"></textarea>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<a href="javascript:addMessage();" role="button" class="btn btn-warning">发布</a>
+					</div>
+				</div>
+			</div>
+		</div>
 		<script src="common/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/js/cookie.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function() {
-				$(window).on("scroll", function(e) {
-					e = e || window.event;
-					var scroll = $(document).scrollTop();
-					if(scroll > 192) {
-						$("#nav").addClass("navigation-fix-top");
-					} else {
-						$("#nav").removeClass("navigation-fix-top");
+				var username = getcookie("username");
+				if(username == "" || username == null) {
+					window.location = "login.html";
+				}
+				getList();
+			});
+
+			function getList() {
+				$.ajax({
+					url: "http://localhost:3000/api/message/messageList",
+					type: "post",
+					timeout: 20000,
+					dataType: "json",
+					data: {},
+					success: function(data) {
+						var text = "";
+						if(data.code === 1) {
+							for(var i = 0, length = data.result.length; i < length; i++) {
+								text += "<article class=\"post\">" +
+									"<div class=\"post-head\">" +
+									"<h1 class=\"post-title\"><a href=\"javascript:;\">" + data.result[i].title + "</a></h1>" +
+									"<div class=\"post-meta\">" +
+									"<span class=\"author\">作者：<a href=\"javascript:;\">" + data.result[i].author + "</a></span> • " +
+									"<time class=\"post-date\">" + formatDate(data.result[i].date) + "</time>" +
+									"</div>" +
+									"</div>" +
+									"<div class=\"post-content\">" +
+									"<p>" + data.result[i].message + "</p>" +
+									"</div>" +
+									"</article>";
+							}
+						}
+						$("#main").html(text);
 					}
 				});
-			});
+			}
+
+			function addMessage() {
+				var title = $("#message-title").val(),
+					author = getcookie("username"),
+					message = $("#message-text").val();
+				if(title === "") {
+					alert("请输入标题");
+				} else if(message === "") {
+					alert("请输入内容");
+				} else {
+					$.ajax({
+						url: "http://localhost:3000/api/message/messageAdd",
+						type: "post",
+						timeout: 20000,
+						dataType: "json",
+						data: {
+							title: title,
+							author: author,
+							message: message
+						},
+						success: function(data) {
+							if(data.code === 1) {
+								$('#myModal').modal('hide');
+								getList();
+							} else {
+								alert(data.msg);
+							}
+						}
+					});
+				}
+			}
+
+			function formatDate(date) {
+				var d = new Date(date);
+				return d.getFullYear() + '年' + (d.getMonth() + 1) + '月' + d.getDate() + '日';
+			}
 		</script>
 	</body>
 

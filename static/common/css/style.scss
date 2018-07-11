@@ -2,6 +2,10 @@ body {
     background-color: #ebebeb;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 @keyframes square {
     0% {
         opacity: 0.5;
@@ -159,6 +163,58 @@ body {
                 display: block;
                 padding: 0 21px;
             }
+        }
+    }
+}
+
+.post {
+    padding: 35px;
+    background: #ffffff;
+    margin-bottom: 35px;
+    position: relative;
+    overflow: hidden;
+    .post-head {
+        text-align: center;
+        .post-title {
+            margin: 0;
+            font-size: 2.5em;
+            line-height: 1em;
+            a {
+                color: #000000;
+            }
+        }
+        .post-meta {
+            color: #959595;
+            margin: 14px 0 0px;
+        }
+    }
+    .post-content {
+        margin: 30px 0;
+        p {
+            margin-top: 0;
+            margin-bottom: 1.46em;
+            font-size: 16px;
+        }
+    }
+}
+
+.widget {
+    background: #ffffff;
+    padding: 21px 30px;
+    .title {
+        margin-top: 0;
+        padding-bottom: 7px;
+        border-bottom: 1px solid #ebebeb;
+        margin-bottom: 21px;
+        position: relative;
+        &:after {
+            content: "";
+            width: 90px;
+            height: 1px;
+            background: #e67e22;
+            position: absolute;
+            left: 0;
+            bottom: -1px;
         }
     }
 }
