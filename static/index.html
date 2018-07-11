@@ -7,7 +7,7 @@
 		<meta name="description" content="">
 		<meta name="format-detection" content="telephone=no">
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-		<title>demo</title>
+		<title>lanxx blog</title>
 		<link rel="stylesheet" type="text/css" href="common/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="common/css/style.css" />
 	</head>
@@ -17,8 +17,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						<a class="branding" href="javascript:;" title="Ghost 开源博客平台">
-							<img src="./common/images/logo.png" alt="demo 开源博客平台">
+						<a class="branding" href="javascript:;" title="lanxx blog">
+							<img src="./common/images/logo.png" alt="lanxx blog">
 						</a>
 					</div>
 				</div>
@@ -30,22 +30,22 @@
 					<div class="col-sm-12">
 						<ul class="menu">
 							<li class="nav-current" role="presentation">
-								<a href="javascript:;">首页</a>
+								<a href="javascript:;">Home</a>
 							</li>
 							<li role="presentation">
-								<a href="javascript:;">论坛</a>
+								<a href="javascript:;">Forum</a>
 							</li>
 							<li role="presentation">
-								<a href="javascript:;">快捷手册</a>
+								<a href="javascript:;">Shortcut Manual</a>
 							</li>
 							<li role="presentation">
-								<a href="javascript:;">中文文档</a>
+								<a href="javascript:;">Chinese documents</a>
 							</li>
 							<li role="presentation">
-								<a href="javascript:;">下载</a>
+								<a href="javascript:;">Download</a>
 							</li>
 							<li role="presentation">
-								<a href="javascript:;">关于</a>
+								<a href="javascript:;">About</a>
 							</li>
 						</ul>
 					</div>
@@ -58,9 +58,19 @@
 					<main class="col-md-8" id="main"></main>
 					<aside class="col-md-4">
 						<div class="widget">
-							<h4 class="title">添加 blog</h4>
+							<h4 class="title">you face</h4>
+							<div class="author">
+								<img src="http://img3.imgtn.bdimg.com/it/u=4210461126,592836577&fm=27&gp=0.jpg"/>
+								<div class="name" id="author"></div>
+							</div>
 							<div class="content download">
-								<a href="javascript:;" class="btn btn-warning btn-block" data-toggle="modal" data-target="#myModal">add blog</a>
+								<a href="javascript:quit();" class="btn btn-warning btn-block">quit</a>
+							</div>
+						</div>
+						<div class="widget">
+							<h4 class="title">talk me</h4>
+							<div class="content download">
+								<a href="javascript:;" class="btn btn-warning btn-block" data-toggle="modal" data-target="#myModal">add</a>
 							</div>
 						</div>
 					</aside>
@@ -102,6 +112,7 @@
 				if(username == "" || username == null) {
 					window.location = "login.html";
 				}
+				$("#author").text(username);
 				getList();
 			});
 
@@ -165,7 +176,12 @@
 					});
 				}
 			}
-
+			
+			function quit() {
+				delcookie("username");
+				window.location = "login.html";
+			}
+			
 			function formatDate(date) {
 				var d = new Date(date);
 				return d.getFullYear() + '年' + (d.getMonth() + 1) + '月' + d.getDate() + '日';
